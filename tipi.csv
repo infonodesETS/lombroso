@@ -1,0 +1,8 @@
+tipo,tratti,min_anomalie,senza_anomalie,attivo,verificato,nota
+delinquente nato,,5,no,si,no,"L'uomo delinquente: «tipo criminale completo» con cinque o più anomalie riunite nello stesso individuo"
+omicida,mandibola voluminosa;zigomi sporgenti;labbra sottili,,no,si,no,"L'uomo delinquente: mandibole robuste, zigomi larghi, labbra sottili (più naso aquilino e sguardo vitreo, non ancora misurabili)"
+ladro,naso torto;naso camuso,,no,si,no,"L'uomo delinquente: naso torto o camuso (più occhi mobili e orecchie ad ansa, non ancora misurabili)"
+truffatore,occhi piccoli;naso lungo,,no,si,no,"L'uomo delinquente: truffatori e falsari con occhi piccoli e naso lungo e voluminoso, sotto un'aria di bonarietà"
+anarchico,asimmetria facciale,,no,si,no,"Gli anarchici (1894): Lombroso segnala l'asimmetria facciale tra i caratteri degli anarchici; base debole, da verificare"
+delinquente per passione,fisionomia armonica,,si,si,no,"L'uomo delinquente: nessuna anomalia, lineamenti belli e armonici; delinque per impeto, non per natura"
+stupratore,labbra tumide,,no,no,no,"L'uomo delinquente: labbra e palpebre tumide. DISATTIVATO: oggi le «labbra tumide» rilevate sono sorrisi, non un tratto del viso"

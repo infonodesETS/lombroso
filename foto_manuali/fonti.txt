@@ -1,0 +1,52 @@
+Salvini:
+1) https://pagellapolitica.it/politici/matteo-salvini
+2) https://www.rainews.it/archivio-rainews/articoli/caso-siri-salvini-non-ho-tempo-per-beghe-e-polemiche-3019049e-b523-40dc-909f-f3145cb7be71.html
+3) https://tg.la7.it/politica/manovre-in-vista-del-voto-in-sicilia-salvini-rilancia-pronto-a-guidare-il-centrodestra-01-08-2017-118525
+
+Urso:
+urso_fronte: https://www.cybersecitalia.events/speaker/adolfo-urso/#lg=1&slide=0
+urso_profilo_dx: https://www.ilriformista.it/wp-content/uploads/2023/08/Adolfo-Urso-1536x1024.jpg
+urso_profilo_sx: https://www.facebook.com/LaPrealpina/videos/ospite-del-forum-di-cernobbio-il-ministro-urso-ha-fatto-il-punto-sulla-situazion/2195266911404292/
+
+Ciriani:
+ciriani_fronte: https://www.ilnordestquotidiano.it/wp-content/uploads/2012/04/FVG-vicepresidente-Luca-Ciriani_1.jpg
+ciriani_profilo_dx: https://www.pordenonetoday.it/politica/ciriani-meloni-leader-europeo-legge-elettorale.html
+ciriani_profilo_sx: https://www.pordenonetoday.it/politica/luca-ciriani-tonutti-nuovo-ospedale.html
+
+Zangrillo:
+zangrillo_fronte: https://it.wikipedia.org/wiki/Paolo_Zangrillo
+zangrillo_profilo_dx: 
+zangrillo_profilo_sx: 
+
+Calderoli:
+calderoli_fronte: https://st.ilfattoquotidiano.it/wp-content/uploads/2014/10/CALDEROLI-675.jpg
+
+Musumeci:
+musumeci_fronte: https://upload.wikimedia.org/wikipedia/commons/f/fd/Nello_Musumeci_stampa_estera.jpg?utm_source=it.wikipedia.org&utm_campaign=index&utm_content=original
+
+Casellati:
+casellati_fronte: https://upload.wikimedia.org/wikipedia/commons/f/f7/Elisabetta_Alberti_Casellati_cropped.jpg?utm_source=it.wikipedia.org&utm_campaign=index&utm_content=original
+
+Bernini:
+bernini_fronte: https://forumcommerciointernazionale.com/wp-content/uploads/2025/09/Anna-Maria-Bernini-1024x1024.jpg
+
+Abodi:
+abodi_fronte: https://www.sciaremag.it/wp-content/uploads/2022/10/apre-abodi.jpg
+
+Piantedosi:
+piantedosi_fronte: https://biografieonline.it/img/bio/m/Matteo_Piantedosi.jpg
+
+Calderone:
+calderone_fronte: https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Maria_Elvira_Calderone_2025.jpg/250px-Maria_Elvira_Calderone_2025.jpg?utm_source=it.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
+
+Valditara:
+valditara_fronte: https://upload.wikimedia.org/wikipedia/commons/9/9e/Giuseppe_Valditara%2C_2025.11.27_%28cropped%29.jpg?utm_source=it.wikipedia.org&utm_campaign=index&utm_content=original
+
+Giuli:
+giuli_fronte: https://www.ilgiornaledellarte.com/Uploads/Articles/45097/IMG20241112102508460.jpg
+
+Schillaci:
+schillaci_fronte: https://biografieonline.it/biografia-orazio-schillaci
+
+
+

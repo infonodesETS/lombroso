@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LOMBROSO — Atlante antropometrico dei ministri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --carta: #ece3cf; --carta2: #e2d7bd; --inchiostro: #231c14; --seppia: #6b5a43;
+  --riga: #b9a98a; --rosso: #9c1c12;
+  --serif: "IM Fell English", "Iowan Old Style", Georgia, serif;
+  --maiuscoletto: "IM Fell English SC", Georgia, serif;
+  --macchina: "Courier Prime", "Courier New", monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--carta); color: var(--inchiostro); font-family: var(--serif);
+  font-size: 18px; line-height: 1.45;
+  background-image: radial-gradient(circle at 20% 10%, #f3ecdc 0, transparent 55%),
+                    radial-gradient(circle at 85% 90%, #d9ccae 0, transparent 50%); }
+.avviso { background: var(--inchiostro); color: var(--carta); font-family: var(--macchina);
+  font-size: 13px; text-align: center; padding: 8px 16px; letter-spacing: .04em; }
+.testata { max-width: 1000px; margin: 0 auto; padding: 56px 20px 28px; text-align: center; }
+.testata .sopra { font-family: var(--maiuscoletto); letter-spacing: .2em; color: var(--seppia); font-size: 15px; }
+.testata h1 { font-family: var(--maiuscoletto); font-weight: 400; font-size: clamp(54px, 13vw, 132px);
+  letter-spacing: .06em; margin: 6px 0 0; line-height: 1; }
+.testata .sotto { font-style: italic; font-size: clamp(19px, 3vw, 26px); margin: 10px 0 0; }
+.filetto { border: 0; border-top: 3px double var(--inchiostro); max-width: 420px; margin: 26px auto; }
+.premessa { max-width: 680px; margin: 0 auto; text-align: left; }
+.premessa p { margin: 0 0 14px; }
+.cifre { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; margin: 30px auto 0;
+  font-family: var(--macchina); font-size: 14px; text-transform: uppercase; letter-spacing: .08em; }
+.cifre b { display: block; font-family: var(--maiuscoletto); font-size: 40px; letter-spacing: 0; line-height: 1; }
+main { max-width: 1240px; margin: 0 auto; padding: 20px 16px 60px; }
+.titolo-sez { font-family: var(--maiuscoletto); font-weight: 400; font-size: 26px; letter-spacing: .12em;
+  text-align: center; margin: 44px 0 6px; }
+.nota-sez { text-align: center; font-style: italic; color: var(--seppia); margin: 0 0 26px; }
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; }
+.scheda { background: #f4eddc; border: 1px solid var(--inchiostro); padding: 14px 16px 12px;
+  box-shadow: 4px 4px 0 var(--carta2); display: flex; flex-direction: column; }
+.scheda header { display: flex; justify-content: space-between; font-family: var(--macchina); font-size: 12px;
+  text-transform: uppercase; letter-spacing: .08em; border-bottom: 1px solid var(--inchiostro);
+  padding-bottom: 6px; margin-bottom: 12px; }
+.scheda .anom { color: var(--seppia); }
+.scheda.mezzo .anom, .scheda.completo .anom { color: var(--rosso); font-weight: 700; }
+figure { margin: 0; position: relative; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid var(--inchiostro);
+  background: #cfc3a6; }
+figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;
+  filter: grayscale(1) sepia(.35) contrast(1.08); transition: opacity .25s; }
+figure .punti { opacity: 0; filter: grayscale(1) contrast(1.15); }
+figure:hover .punti, figure:focus-within .punti { opacity: 1; }
+.timbro { position: absolute; right: 8px; bottom: 10px; font-family: var(--macchina); font-weight: 700;
+  font-size: 12px; text-transform: uppercase; letter-spacing: .1em; padding: 4px 8px;
+  border: 2px solid currentColor; transform: rotate(-5deg); background: rgba(244,237,220,.82); color: var(--seppia); }
+.mezzo .timbro, .completo .timbro { color: var(--rosso); }
+.scheda h2 { font-family: var(--maiuscoletto); font-weight: 400; font-size: 25px; line-height: 1.1; margin: 14px 0 2px; }
+.categoria { margin: 56px 0 8px; }
+.cat-titolo { font-family: var(--maiuscoletto); font-weight: 400; font-size: 34px; margin: 0;
+  border-bottom: 2px solid var(--inchiostro); padding-bottom: 4px; }
+.cat-titolo small { font-size: 18px; color: var(--seppia); }
+.cat-nota { font-style: italic; color: var(--seppia); margin: 8px 0 22px; }
+.affid { font-family: var(--macchina); font-size: 13px; color: var(--rosso); margin: 8px 0 0; }
+.carica { font-style: italic; color: var(--seppia); margin: 0 0 12px; font-size: 16px; line-height: 1.25; min-height: 2.5em; }
+.tipo { margin: 0 0 12px; font-family: var(--maiuscoletto); font-size: 30px; line-height: 1; color: var(--seppia); }
+.tipo span { display: block; font-family: var(--macchina); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 3px; }
+.mezzo .tipo { color: var(--rosso); }
+.timbro { font-size: 15px !important; }
+.misure { border-top: 1px solid var(--riga); padding-top: 8px; }
+.mis { display: grid; grid-template-columns: 1fr 74px 40px; gap: 8px; align-items: center;
+  font-family: var(--macchina); font-size: 12.5px; padding: 2px 0; }
+.mis .val { text-align: right; }
+.barra { position: relative; height: 10px; border-left: 1px solid var(--riga); border-right: 1px solid var(--riga);
+  background: linear-gradient(to right, rgba(156,28,18,.16) 0 25%, transparent 25% 75%, rgba(156,28,18,.16) 75% 100%); }
+.barra::before { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; border-left: 1px solid var(--inchiostro); }
+.barra i { position: absolute; top: 1px; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: var(--inchiostro); }
+.mis.fuori { color: var(--rosso); font-weight: 700; }
+.mis.fuori .barra i { background: var(--rosso); }
+.referto { margin: 12px 0 0; font-size: 17px; line-height: 1.35; }
+.tratti { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tratti li { font-family: var(--macchina); font-size: 12px; text-transform: uppercase; letter-spacing: .06em;
+  border: 1px solid var(--rosso); color: var(--rosso); padding: 2px 7px; }
+.fonte { margin: auto 0 0; padding-top: 12px; font-family: var(--macchina); font-size: 10.5px; color: var(--seppia); }
+.legenda { max-width: 680px; margin: 0 auto 30px; font-family: var(--macchina); font-size: 13px; color: var(--seppia); text-align: center; }
+.attesa { list-style: none; padding: 0; margin: 0; columns: 3 260px; column-gap: 28px; }
+.attesa li { break-inside: avoid; border-bottom: 1px dotted var(--riga); padding: 6px 0; font-size: 16px; }
+.attesa b { font-weight: 400; font-family: var(--maiuscoletto); display: block; }
+.attesa span { font-style: italic; color: var(--seppia); font-size: 14.5px; }
+.metodo { max-width: 680px; margin: 0 auto; }
+.metodo h3 { font-family: var(--maiuscoletto); font-weight: 400; font-size: 21px; margin: 22px 0 4px; }
+.metodo p { margin: 0 0 12px; }
+footer { border-top: 3px double var(--inchiostro); text-align: center; padding: 22px 16px 40px;
+  font-family: var(--macchina); font-size: 12.5px; color: var(--seppia); }
+</style>
+</head>
+<body>
+<div class="avviso">BOZZA DI LAVORO · SATIRA · LE CLASSIFICAZIONI NON HANNO ALCUN VALORE SCIENTIFICO</div>
+
+<div class="testata">
+  <div class="sopra">Atlante antropometrico dei ministri e delle ministre</div>
+  <h1>Lombroso</h1>
+  <p class="sotto">I volti del potere, misurati con il metodo che il potere vuole usare su di noi</p>
+  <hr class="filetto">
+  <div class="premessa">
+    <p>Nel 1876 Cesare Lombroso sostenne che il delinquente si riconosce dalla faccia: mandibola, zigomi, naso. Era falso allora ed è falso oggi. Eppure la stessa idea, misurare i tratti di un volto, il colore della pelle, il tipo di camminata, per decidere chi sei, è tornata in voga. Maranza, anarco-insurrezionalisti, zecche rosse, sono i bersagli preferiti delle destre al potere, compresa la nostra.</p>
+    <p>Rispetto ai criminologi e ai poliziotti di fine '800, i nostri post-fascisti hanno però delle tecnologie in più per identificare, controllare, sorvegliare, fermare, chiunque secondo loro sia un criminale: tecnologie come il riconoscimento facciale.</p>
+    <p>C'è una cosa che però non hanno tenuto in conto: queste tecnologie sono oggi alla portata di tutti, anche di chi non vuole arrendersi alla deriva autoritaria, repressiva e fascistoide del proprio paese.</p>
+    <p>Allora abbiamo preso le fotografie dei ministri e delle ministre e le abbiamo passate a una macchina. Poi abbiamo applicato le regole di Lombroso, alla lettera.</p>
+    <p>Di profilo, purtroppo, non ne esistono quasi: nessuna fotografia ufficiale mostra il lato del viso che Lombroso considerava decisivo. Abbiamo dovuto accontentarci delle poche frontali disponibili. I ministri e le ministre che desiderano un'identificazione più accurata sono invitati a inviarci di propria iniziativa le loro fotografie di profilo, destro e sinistro. Le foto che preferiscono, perché al contrario di quanto fa questo governo, noi non andremo a prenderli in casa o a fermarli nelle zone rosse per identificarli in maniera coatta.</p>
+  </div>
+  <div class="cifre">
+    <div><b>23</b>soggetti misurati</div>
+    <div><b>12</b>criminaloide</div><div><b>3</b>omicida</div><div><b>3</b>anarchico</div><div><b>2</b>ladro</div><div><b>2</b>delinquente per passione</div><div><b>1</b>truffatore</div>
+    <div><b>2</b>in attesa di misurazione</div>
+  </div>
+</div>
+
+<main>
+  <h2 class="titolo-sez">Tavole</h2>
+  <p class="nota-sez">Passa sopra un ritratto per vedere ciò che vede la macchina.</p>
+  <p class="legenda">Ogni riga mostra quanto il soggetto si discosta dalla media del gruppo: al centro la media, nelle fasce rosse l'anomalia.</p>
+  <section class="categoria"><h3 class="cat-titolo">Gli omicidi <small>(3)</small></h3><p class="cat-nota">Mandibole robuste, zigomi larghi, labbra sottili.</p><div class="griglia">
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 01</span><span class="anom">1 anomalia</span></header>
+  <figure>
+    <img class="ritratto" src="foto/foti.jpg" alt="Ritratto di Tommaso Foti" loading="lazy">
+    <img class="punti" src="foto/foti_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">omicida</span>
+  </figure>
+  <h2>Tommaso Foti</h2>
+  <p class="carica">Ministro per gli Affari europei, il PNRR e le Politiche di coesione</p>
+  <p class="tipo"><span>Tipo</span>omicida</p>
+  <div class="misure"><div class="mis fuori"><span class="lab">Mandibola</span><span class="barra"><i style="left:75.7%"></i></span><span class="val">+1,5</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:48.0%"></i></span><span class="val">−0,1</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:47.0%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:40.7%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:33.7%"></i></span><span class="val">−1,0</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:45.8%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:61.3%"></i></span><span class="val">+0,7</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:61.5%"></i></span><span class="val">+0,7</span></div></div>
+  <p class="referto">Il soggetto presenta mandibola voluminosa.</p>
+  <ul class="tratti"><li>mandibola voluminosa</li></ul>
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati</p>
+</article>
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 02</span><span class="anom">1 anomalia</span></header>
+  <figure>
+    <img class="ritratto" src="foto/pichetto.jpg" alt="Ritratto di Gilberto Pichetto Fratin" loading="lazy">
+    <img class="punti" src="foto/pichetto_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">omicida</span>
+  </figure>
+  <h2>Gilberto Pichetto Fratin</h2>
+  <p class="carica">Ministro dell&#x27;Ambiente e della Sicurezza energetica</p>
+  <p class="tipo"><span>Tipo</span>omicida</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:56.7%"></i></span><span class="val">+0,4</span></div><div class="mis fuori"><span class="lab">Zigomi</span><span class="barra"><i style="left:88.3%"></i></span><span class="val">+2,3</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:53.7%"></i></span><span class="val">+0,2</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:32.8%"></i></span><span class="val">−1,0</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:45.0%"></i></span><span class="val">−0,3</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:35.3%"></i></span><span class="val">−0,9</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:53.3%"></i></span><span class="val">+0,2</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:63.8%"></i></span><span class="val">+0,8</span></div></div>
+  <p class="referto">Il soggetto presenta zigomi sporgenti.</p>
+  <ul class="tratti"><li>zigomi sporgenti</li></ul>
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati</p>
+</article>
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 03</span><span class="anom">1 anomalia</span></header>
+  <figure>
+    <img class="ritratto" src="foto/nordio.jpg" alt="Ritratto di Carlo Nordio" loading="lazy">
+    <img class="punti" src="foto/nordio_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">omicida</span>
+  </figure>
+  <h2>Carlo Nordio</h2>
+  <p class="carica">Ministro della Giustizia</p>
+  <p class="tipo"><span>Tipo</span>omicida</p>
+  <div class="misure"><div class="mis fuori"><span class="lab">Mandibola</span><span class="barra"><i style="left:80.5%"></i></span><span class="val">+1,8</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:56.5%"></i></span><span class="val">+0,4</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:57.5%"></i></span><span class="val">+0,5</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:61.5%"></i></span><span class="val">+0,7</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:31.5%"></i></span><span class="val">−1,1</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:47.0%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:38.8%"></i></span><span class="val">−0,7</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:39.7%"></i></span><span class="val">−0,6</span></div></div>
+  <p class="referto">Il soggetto presenta mandibola voluminosa.</p>
+  <ul class="tratti"><li>mandibola voluminosa</li></ul>
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati</p>
+</article></div></section><section class="categoria"><h3 class="cat-titolo">I ladri <small>(2)</small></h3><p class="cat-nota">Naso torto o camuso.</p><div class="griglia">
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 04</span><span class="anom">3 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/piantedosi.jpg" alt="Ritratto di Matteo Piantedosi" loading="lazy">
+    <img class="punti" src="foto/piantedosi_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">ladro</span>
+  </figure>
+  <h2>Matteo Piantedosi</h2>
+  <p class="carica">Ministro dell&#x27;Interno</p>
+  <p class="tipo"><span>Tipo</span>ladro</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:42.3%"></i></span><span class="val">−0,5</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:53.3%"></i></span><span class="val">+0,2</span></div><div class="mis fuori"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:76.8%"></i></span><span class="val">+1,6</span></div><div class="mis fuori"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:98.0%"></i></span><span class="val">+3,1</span></div><div class="mis fuori"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:24.5%"></i></span><span class="val">−1,5</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:39.3%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:46.8%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:44.5%"></i></span><span class="val">−0,3</span></div></div>
+  <p class="referto">Il soggetto presenta naso camuso, naso torto e labbra sottili.</p>
+  <ul class="tratti"><li>naso camuso</li><li>naso torto</li><li>labbra sottili</li></ul>
+  
+  <p class="fonte">Foto: raccolta dalla redazione</p>
+</article>
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 05</span><span class="anom">1 anomalia</span></header>
+  <figure>
+    <img class="ritratto" src="foto/zangrillo.jpg" alt="Ritratto di Paolo Zangrillo" loading="lazy">
+    <img class="punti" src="foto/zangrillo_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">ladro</span>
+  </figure>
+  <h2>Paolo Zangrillo</h2>
+  <p class="carica">Ministro per la Pubblica Amministrazione</p>
+  <p class="tipo"><span>Tipo</span>ladro</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:56.7%"></i></span><span class="val">+0,4</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:62.2%"></i></span><span class="val">+0,7</span></div><div class="mis fuori"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:89.8%"></i></span><span class="val">+2,4</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:40.8%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:35.0%"></i></span><span class="val">−0,9</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:37.3%"></i></span><span class="val">−0,8</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:45.3%"></i></span><span class="val">−0,3</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:25.2%"></i></span><span class="val">−1,5</span></div></div>
+  <p class="referto">Il soggetto presenta naso camuso.</p>
+  <ul class="tratti"><li>naso camuso</li></ul>
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Senato della Repubblica</p>
+</article></div></section><section class="categoria"><h3 class="cat-titolo">I truffatori <small>(1)</small></h3><p class="cat-nota">Occhi piccoli e naso lungo, sotto un&#x27;aria di bonarietà.</p><div class="griglia">
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 06</span><span class="anom">1 anomalia</span></header>
+  <figure>
+    <img class="ritratto" src="foto/crosetto.jpg" alt="Ritratto di Guido Crosetto" loading="lazy">
+    <img class="punti" src="foto/crosetto_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">truffatore</span>
+  </figure>
+  <h2>Guido Crosetto</h2>
+  <p class="carica">Ministro della Difesa</p>
+  <p class="tipo"><span>Tipo</span>truffatore</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:20.0%"></i></span><span class="val">−1,8</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:39.5%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:39.8%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:58.3%"></i></span><span class="val">+0,5</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:59.0%"></i></span><span class="val">+0,5</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:48.2%"></i></span><span class="val">−0,1</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:35.7%"></i></span><span class="val">−0,9</span></div><div class="mis fuori"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:88.0%"></i></span><span class="val">+2,3</span></div></div>
+  <p class="referto">Il soggetto presenta naso lungo.</p>
+  <ul class="tratti"><li>naso lungo</li></ul>
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati (XVIII leg.)</p>
+</article></div></section><section class="categoria"><h3 class="cat-titolo">Gli anarchici <small>(3)</small></h3><p class="cat-nota">L&#x27;asimmetria del volto, secondo Lombroso, tradisce l&#x27;animo ribelle.</p><div class="griglia">
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 07</span><span class="anom">1 anomalia</span></header>
+  <figure>
+    <img class="ritratto" src="foto/ciriani.jpg" alt="Ritratto di Luca Ciriani" loading="lazy">
+    <img class="punti" src="foto/ciriani_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">anarchico</span>
+  </figure>
+  <h2>Luca Ciriani</h2>
+  <p class="carica">Ministro per i Rapporti con il Parlamento</p>
+  <p class="tipo"><span>Tipo</span>anarchico</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:36.0%"></i></span><span class="val">−0,8</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:34.2%"></i></span><span class="val">−0,9</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:44.5%"></i></span><span class="val">−0,3</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:39.7%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:49.0%"></i></span><span class="val">−0,1</span></div><div class="mis fuori"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:75.2%"></i></span><span class="val">+1,5</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:80.5%"></i></span><span class="val">+1,8</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:32.5%"></i></span><span class="val">−1,1</span></div></div>
+  <p class="referto">Il soggetto presenta asimmetria facciale.</p>
+  <ul class="tratti"><li>asimmetria facciale</li></ul>
+  
+  <p class="fonte">Foto: Senato della Repubblica</p>
+</article>
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 08</span><span class="anom">1 anomalia</span></header>
+  <figure>
+    <img class="ritratto" src="foto/giuli.jpg" alt="Ritratto di Alessandro Giuli" loading="lazy">
+    <img class="punti" src="foto/giuli_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">anarchico</span>
+  </figure>
+  <h2>Alessandro Giuli</h2>
+  <p class="carica">Ministro della Cultura</p>
+  <p class="tipo"><span>Tipo</span>anarchico</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:70.2%"></i></span><span class="val">+1,2</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:63.0%"></i></span><span class="val">+0,8</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:51.7%"></i></span><span class="val">+0,1</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:39.2%"></i></span><span class="val">−0,7</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:52.2%"></i></span><span class="val">+0,1</span></div><div class="mis fuori"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:95.7%"></i></span><span class="val">+2,7</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:37.3%"></i></span><span class="val">−0,8</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:22.8%"></i></span><span class="val">−1,6</span></div></div>
+  <p class="referto">Il soggetto presenta asimmetria facciale.</p>
+  <ul class="tratti"><li>asimmetria facciale</li></ul>
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: raccolta dalla redazione</p>
+</article>
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 09</span><span class="anom">1 anomalia</span></header>
+  <figure>
+    <img class="ritratto" src="foto/musumeci.jpg" alt="Ritratto di Nello Musumeci" loading="lazy">
+    <img class="punti" src="foto/musumeci_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">anarchico</span>
+  </figure>
+  <h2>Nello Musumeci</h2>
+  <p class="carica">Ministro per la Protezione civile e le Politiche del Mare</p>
+  <p class="tipo"><span>Tipo</span>anarchico</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:66.2%"></i></span><span class="val">+1,0</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:28.5%"></i></span><span class="val">−1,3</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:62.5%"></i></span><span class="val">+0,8</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:33.8%"></i></span><span class="val">−1,0</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:59.3%"></i></span><span class="val">+0,6</span></div><div class="mis fuori"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:86.2%"></i></span><span class="val">+2,2</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:29.3%"></i></span><span class="val">−1,2</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:34.8%"></i></span><span class="val">−0,9</span></div></div>
+  <p class="referto">Il soggetto presenta asimmetria facciale.</p>
+  <ul class="tratti"><li>asimmetria facciale</li></ul>
+  
+  <p class="fonte">Foto: Senato della Repubblica</p>
+</article></div></section><section class="categoria"><h3 class="cat-titolo">I delinquenti per passione <small>(2)</small></h3><p class="cat-nota">Lineamenti belli e armonici, nessuna anomalia: delinquono per impeto, non per natura.</p><div class="griglia">
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 10</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/mazzi.jpg" alt="Ritratto di Gianmarco Mazzi" loading="lazy">
+    <img class="punti" src="foto/mazzi_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">delinquente per passione</span>
+  </figure>
+  <h2>Gianmarco Mazzi</h2>
+  <p class="carica">Ministro del Turismo</p>
+  <p class="tipo"><span>Tipo</span>delinquente per passione</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:59.8%"></i></span><span class="val">+0,6</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:64.3%"></i></span><span class="val">+0,9</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:49.0%"></i></span><span class="val">−0,1</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:39.5%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:40.8%"></i></span><span class="val">−0,6</span></div><div class="mis fuori"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:32.3%"></i></span><span class="val">−1,1</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:40.5%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:56.7%"></i></span><span class="val">+0,4</span></div></div>
+  <p class="referto">Il soggetto presenta fisionomia armonica.</p>
+  <ul class="tratti"><li>fisionomia armonica</li></ul>
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati</p>
+</article>
+<article class="scheda mezzo">
+  <header><span class="num">Soggetto n. 11</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/meloni.jpg" alt="Ritratto di Giorgia Meloni" loading="lazy">
+    <img class="punti" src="foto/meloni_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">delinquente per passione</span>
+  </figure>
+  <h2>Giorgia Meloni</h2>
+  <p class="carica">Presidente del Consiglio</p>
+  <p class="tipo"><span>Tipo</span>delinquente per passione</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:36.8%"></i></span><span class="val">−0,8</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:18.3%"></i></span><span class="val">−1,9</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:41.8%"></i></span><span class="val">−0,5</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:70.0%"></i></span><span class="val">+1,2</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:71.7%"></i></span><span class="val">+1,3</span></div><div class="mis fuori"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:31.7%"></i></span><span class="val">−1,1</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:93.2%"></i></span><span class="val">+2,6</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:54.2%"></i></span><span class="val">+0,2</span></div></div>
+  <p class="referto">Il soggetto presenta fisionomia armonica.</p>
+  <ul class="tratti"><li>fisionomia armonica</li></ul>
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati</p>
+</article></div></section><section class="categoria"><h3 class="cat-titolo">I criminaloidi <small>(12)</small></h3><p class="cat-nota">Nessun tratto che li distingua dal gruppo: delinquenti d&#x27;occasione, in attesa dell&#x27;occasione.</p><div class="griglia">
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 12</span><span class="anom">1 anomalia</span></header>
+  <figure>
+    <img class="ritratto" src="foto/casellati.jpg" alt="Ritratto di Maria Elisabetta Alberti Casellati" loading="lazy">
+    <img class="punti" src="foto/casellati_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Maria Elisabetta Alberti Casellati</h2>
+  <p class="carica">Ministra per le Riforme istituzionali</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:53.5%"></i></span><span class="val">+0,2</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:30.2%"></i></span><span class="val">−1,2</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:20.0%"></i></span><span class="val">−1,8</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:59.2%"></i></span><span class="val">+0,6</span></div><div class="mis fuori"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:97.5%"></i></span><span class="val">+2,9</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:52.5%"></i></span><span class="val">+0,1</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:72.5%"></i></span><span class="val">+1,4</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:25.2%"></i></span><span class="val">−1,5</span></div></div>
+  <p class="referto">Il soggetto presenta labbra tumide.</p>
+  <ul class="tratti"><li>labbra tumide</li></ul>
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Senato della Repubblica</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 13</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/bernini.jpg" alt="Ritratto di Anna Maria Bernini" loading="lazy">
+    <img class="punti" src="foto/bernini_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Anna Maria Bernini</h2>
+  <p class="carica">Ministra dell&#x27;Università e della Ricerca</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:36.8%"></i></span><span class="val">−0,8</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:46.7%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:43.7%"></i></span><span class="val">−0,4</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:60.8%"></i></span><span class="val">+0,7</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:64.7%"></i></span><span class="val">+0,9</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:67.3%"></i></span><span class="val">+1,0</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:59.7%"></i></span><span class="val">+0,6</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:59.0%"></i></span><span class="val">+0,5</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  
+  <p class="fonte">Foto: Senato della Repubblica</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 14</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/calderoli.jpg" alt="Ritratto di Roberto Calderoli" loading="lazy">
+    <img class="punti" src="foto/calderoli_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Roberto Calderoli</h2>
+  <p class="carica">Ministro per gli Affari regionali e le Autonomie</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:63.8%"></i></span><span class="val">+0,8</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:43.2%"></i></span><span class="val">−0,4</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:30.2%"></i></span><span class="val">−1,2</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:34.3%"></i></span><span class="val">−0,9</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:69.0%"></i></span><span class="val">+1,1</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:59.7%"></i></span><span class="val">+0,6</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:62.8%"></i></span><span class="val">+0,8</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:39.7%"></i></span><span class="val">−0,6</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Senato della Repubblica</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 15</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/giorgetti.jpg" alt="Ritratto di Giancarlo Giorgetti" loading="lazy">
+    <img class="punti" src="foto/giorgetti_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Giancarlo Giorgetti</h2>
+  <p class="carica">Ministro dell&#x27;Economia e delle Finanze</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:63.0%"></i></span><span class="val">+0,8</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:52.8%"></i></span><span class="val">+0,2</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:57.2%"></i></span><span class="val">+0,4</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:67.0%"></i></span><span class="val">+1,0</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:44.7%"></i></span><span class="val">−0,3</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:40.5%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:29.3%"></i></span><span class="val">−1,2</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:44.5%"></i></span><span class="val">−0,3</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 16</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/locatelli.jpg" alt="Ritratto di Alessandra Locatelli" loading="lazy">
+    <img class="punti" src="foto/locatelli_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Alessandra Locatelli</h2>
+  <p class="carica">Ministra per le disabilità</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:16.8%"></i></span><span class="val">−2,0</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:24.0%"></i></span><span class="val">−1,6</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:23.5%"></i></span><span class="val">−1,6</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:28.5%"></i></span><span class="val">−1,3</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:58.2%"></i></span><span class="val">+0,5</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:46.2%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:64.5%"></i></span><span class="val">+0,9</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:73.5%"></i></span><span class="val">+1,4</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati (XVIII leg.)</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 17</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/lollobrigida.jpg" alt="Ritratto di Francesco Lollobrigida" loading="lazy">
+    <img class="punti" src="foto/lollobrigida_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Francesco Lollobrigida</h2>
+  <p class="carica">Ministro dell&#x27;Agricoltura, Sovranità alimentare e Foreste</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:33.5%"></i></span><span class="val">−1,0</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:67.5%"></i></span><span class="val">+1,1</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:60.0%"></i></span><span class="val">+0,6</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:49.2%"></i></span><span class="val">−0,1</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:62.3%"></i></span><span class="val">+0,7</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:47.2%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:46.8%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:61.5%"></i></span><span class="val">+0,7</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 18</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/roccella.jpg" alt="Ritratto di Eugenia Maria Roccella" loading="lazy">
+    <img class="punti" src="foto/roccella_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Eugenia Maria Roccella</h2>
+  <p class="carica">Ministra per la Famiglia, la Natalità e le Pari opportunità</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:35.2%"></i></span><span class="val">−0,9</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:59.5%"></i></span><span class="val">+0,6</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:42.0%"></i></span><span class="val">−0,5</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:45.8%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:45.7%"></i></span><span class="val">−0,3</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:44.8%"></i></span><span class="val">−0,3</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:32.5%"></i></span><span class="val">−1,1</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:66.3%"></i></span><span class="val">+1,0</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 19</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/salvini.jpg" alt="Ritratto di Matteo Salvini" loading="lazy">
+    <img class="punti" src="foto/salvini_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Matteo Salvini</h2>
+  <p class="carica">Vice Presidente - Ministro delle Infrastrutture e Trasporti</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:49.5%"></i></span><span class="val">−0,0</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:46.7%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:34.5%"></i></span><span class="val">−0,9</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:46.8%"></i></span><span class="val">−0,2</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:47.7%"></i></span><span class="val">−0,1</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:38.8%"></i></span><span class="val">−0,7</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:51.7%"></i></span><span class="val">+0,1</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:63.8%"></i></span><span class="val">+0,8</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Senato della Repubblica</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 20</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/schillaci.jpg" alt="Ritratto di Orazio Schillaci" loading="lazy">
+    <img class="punti" src="foto/schillaci_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Orazio Schillaci</h2>
+  <p class="carica">Ministro della Salute</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:55.0%"></i></span><span class="val">+0,3</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:66.7%"></i></span><span class="val">+1,0</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:73.2%"></i></span><span class="val">+1,4</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:44.3%"></i></span><span class="val">−0,3</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:34.2%"></i></span><span class="val">−0,9</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:52.5%"></i></span><span class="val">+0,1</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:37.3%"></i></span><span class="val">−0,8</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:34.8%"></i></span><span class="val">−0,9</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: raccolta dalla redazione</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 21</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/tajani.jpg" alt="Ritratto di Antonio Tajani" loading="lazy">
+    <img class="punti" src="foto/tajani_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Antonio Tajani</h2>
+  <p class="carica">Vice Presidente - Ministro degli Esteri</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:57.5%"></i></span><span class="val">+0,5</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:36.5%"></i></span><span class="val">−0,8</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:42.5%"></i></span><span class="val">−0,5</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:70.7%"></i></span><span class="val">+1,2</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:28.2%"></i></span><span class="val">−1,3</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:49.0%"></i></span><span class="val">−0,1</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:48.5%"></i></span><span class="val">−0,1</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:54.2%"></i></span><span class="val">+0,2</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: Camera dei deputati</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 22</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/urso.jpg" alt="Ritratto di Adolfo Urso" loading="lazy">
+    <img class="punti" src="foto/urso_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Adolfo Urso</h2>
+  <p class="carica">Ministro delle Imprese e del Made in Italy</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:40.7%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:56.5%"></i></span><span class="val">+0,4</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:43.7%"></i></span><span class="val">−0,4</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:42.3%"></i></span><span class="val">−0,5</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:52.3%"></i></span><span class="val">+0,1</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:37.3%"></i></span><span class="val">−0,8</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:48.5%"></i></span><span class="val">−0,1</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:54.2%"></i></span><span class="val">+0,2</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  
+  <p class="fonte">Foto: Senato della Repubblica</p>
+</article>
+<article class="scheda nessuno">
+  <header><span class="num">Soggetto n. 23</span><span class="anom">0 anomalie</span></header>
+  <figure>
+    <img class="ritratto" src="foto/valditara.jpg" alt="Ritratto di Giuseppe Valditara" loading="lazy">
+    <img class="punti" src="foto/valditara_punti.jpg" alt="" loading="lazy">
+    <span class="timbro">criminaloide</span>
+  </figure>
+  <h2>Giuseppe Valditara</h2>
+  <p class="carica">Ministro dell&#x27;Istruzione e del Merito</p>
+  <p class="tipo"><span>Tipo</span>criminaloide</p>
+  <div class="misure"><div class="mis"><span class="lab">Mandibola</span><span class="barra"><i style="left:43.8%"></i></span><span class="val">−0,4</span></div><div class="mis"><span class="lab">Zigomi</span><span class="barra"><i style="left:63.5%"></i></span><span class="val">+0,8</span></div><div class="mis"><span class="lab">Larghezza del naso</span><span class="barra"><i style="left:65.5%"></i></span><span class="val">+0,9</span></div><div class="mis"><span class="lab">Deviazione del naso</span><span class="barra"><i style="left:43.0%"></i></span><span class="val">−0,4</span></div><div class="mis"><span class="lab">Spessore delle labbra</span><span class="barra"><i style="left:44.0%"></i></span><span class="val">−0,4</span></div><div class="mis"><span class="lab">Asimmetria del volto</span><span class="barra"><i style="left:40.7%"></i></span><span class="val">−0,6</span></div><div class="mis"><span class="lab">Grandezza degli occhi</span><span class="barra"><i style="left:34.2%"></i></span><span class="val">−0,9</span></div><div class="mis"><span class="lab">Lunghezza del naso</span><span class="barra"><i style="left:49.3%"></i></span><span class="val">−0,0</span></div></div>
+  <p class="referto">Nessuna anomalia propria. Delinquente d&#x27;occasione: nulla lo distingue dalla media del gruppo.</p>
+  
+  <p class="affid">Fotografia di bassa qualità: risultato da confermare. Se il soggetto ci invia un suo ritratto migliore, ricalcoliamo.</p>
+  <p class="fonte">Foto: raccolta dalla redazione</p>
+</article></div></section>
+
+  <h2 class="titolo-sez">In attesa di misurazione</h2>
+  <p class="nota-sez">Soggetti di cui non disponiamo ancora di un ritratto frontale adatto.</p>
+  <ul class="attesa"><li><b>Andrea Abodi</b><span>Ministro per lo Sport e i Giovani</span></li><li><b>Marina Elvira Calderone</b><span>Ministra del Lavoro e delle Politiche sociali</span></li></ul>
+
+  <h2 class="titolo-sez">Metodo</h2>
+  <div class="metodo">
+    <h3>Come misuriamo</h3>
+    <p>Un programma individua 478 punti su ogni volto e ne ricava alcune proporzioni. Ogni soggetto è confrontato con la media dei colleghi: chi se ne allontana troppo riceve il tratto corrispondente.</p>
+    <h3>Stessa faccia, due verdetti</h3>
+    <p>Basta cambiare fotografia perché la stessa persona passi da «anomala» a «normale». È successo durante la costruzione di questo atlante. <em>[Sezione da sviluppare.]</em></p>
+    <h3>Perché lo facciamo</h3>
+    <p><em>[Testo da scrivere: sorveglianza, identificazione, norme a tutela di libertà e riservatezza.]</em></p>
+  </div>
+</main>
+
+<footer>Un progetto info.nodes · collegato all'Oracolo del Dissenso · versione di prova, non pubblicata</footer>
+</body>
+</html>

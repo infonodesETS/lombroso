@@ -1,0 +1,11 @@
+misura,verso,soglia,tratto,anomalia,verificato,nota
+mandibola_su_zigomi,alto,,mandibola voluminosa,si,no,L'uomo delinquente: carattere ricorrente del delinquente nato
+zigomi_su_altezza_viso,alto,,zigomi sporgenti,si,no,L'uomo delinquente: carattere ricorrente del delinquente nato
+naso_larghezza_su_altezza,alto,,naso camuso,si,no,attribuito ai ladri
+naso_deviazione_pct,alto,,naso torto,si,no,attribuito ai ladri
+naso_altezza_su_viso,alto,,naso lungo,si,no,attribuito ai truffatori (naso lungo e voluminoso)
+occhio_su_zigomi,basso,,occhi piccoli,si,no,attribuito a truffatori e falsari
+labbra_spessore_su_bocca,basso,,labbra sottili,si,no,attribuito agli omicidi
+labbra_spessore_su_bocca,alto,,labbra tumide,si,no,attribuito agli stupratori
+asimmetria_pct,alto,,asimmetria facciale,si,no,carattere degenerativo generale
+asimmetria_pct,basso,1.0,fisionomia armonica,no,no,non è un'anomalia: nel delinquente per passione Lombroso nota bellezza e armonia dei lineamenti

@@ -1,0 +1,365 @@
+[
+  {
+    "id": "meloni",
+    "nome": "Giorgia Meloni",
+    "carica": "Presidente del Consiglio",
+    "foto": "foto/meloni.jpg",
+    "fonte_foto": "Camera dei deputati",
+    "tratti": [
+      {
+        "tratto": "fisionomia armonica",
+        "scostamento": -1.1,
+        "nota": "non è un'anomalia: nel delinquente per passione Lombroso nota bellezza e armonia dei lineamenti",
+        "misura": "asimmetria_pct",
+        "anomalia": false
+      }
+    ],
+    "anomalie": 0,
+    "etichetta": "delinquente per passione",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "tajani",
+    "nome": "Antonio Tajani",
+    "carica": "Vice Presidente - Ministro degli Esteri",
+    "foto": "foto/tajani.jpg",
+    "fonte_foto": "Camera dei deputati",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "salvini",
+    "nome": "Matteo Salvini",
+    "carica": "Vice Presidente - Ministro delle Infrastrutture e Trasporti",
+    "foto": "foto_manuali/salvini_fronte.jpg",
+    "fonte_foto": "Senato della Repubblica",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "ciriani",
+    "nome": "Luca Ciriani",
+    "carica": "Ministro per i Rapporti con il Parlamento",
+    "foto": "foto_manuali/ciriani_fronte.jpg",
+    "fonte_foto": "Senato della Repubblica",
+    "tratti": [
+      {
+        "tratto": "asimmetria facciale",
+        "scostamento": 1.51,
+        "nota": "carattere degenerativo generale",
+        "misura": "asimmetria_pct",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 1,
+    "etichetta": "anarchico",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "zangrillo",
+    "nome": "Paolo Zangrillo",
+    "carica": "Ministro per la Pubblica Amministrazione",
+    "foto": "foto_manuali/zangrillo_fronte.jpg",
+    "fonte_foto": "Senato della Repubblica",
+    "tratti": [
+      {
+        "tratto": "naso camuso",
+        "scostamento": 2.39,
+        "nota": "attribuito ai ladri",
+        "misura": "naso_larghezza_su_altezza",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 1,
+    "etichetta": "ladro",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "calderoli",
+    "nome": "Roberto Calderoli",
+    "carica": "Ministro per gli Affari regionali e le Autonomie",
+    "foto": "foto_manuali/calderoli_fronte.jpg",
+    "fonte_foto": "Senato della Repubblica",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "musumeci",
+    "nome": "Nello Musumeci",
+    "carica": "Ministro per la Protezione civile e le Politiche del Mare",
+    "foto": "foto_manuali/musumeci_fronte.jpg",
+    "fonte_foto": "Senato della Repubblica",
+    "tratti": [
+      {
+        "tratto": "asimmetria facciale",
+        "scostamento": 2.17,
+        "nota": "carattere degenerativo generale",
+        "misura": "asimmetria_pct",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 1,
+    "etichetta": "anarchico",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "roccella",
+    "nome": "Eugenia Maria Roccella",
+    "carica": "Ministra per la Famiglia, la Natalità e le Pari opportunità",
+    "foto": "foto/roccella.jpg",
+    "fonte_foto": "Camera dei deputati",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "casellati",
+    "nome": "Maria Elisabetta Alberti Casellati",
+    "carica": "Ministra per le Riforme istituzionali",
+    "foto": "foto_manuali/casellati_fronte.jpg",
+    "fonte_foto": "Senato della Repubblica",
+    "tratti": [
+      {
+        "tratto": "labbra tumide",
+        "scostamento": 2.85,
+        "nota": "attribuito agli stupratori",
+        "misura": "labbra_spessore_su_bocca",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 1,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "locatelli",
+    "nome": "Alessandra Locatelli",
+    "carica": "Ministra per le disabilità",
+    "foto": "foto/locatelli.jpg",
+    "fonte_foto": "Camera dei deputati (XVIII leg.)",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "foti",
+    "nome": "Tommaso Foti",
+    "carica": "Ministro per gli Affari europei, il PNRR e le Politiche di coesione",
+    "foto": "foto/foti.jpg",
+    "fonte_foto": "Camera dei deputati",
+    "tratti": [
+      {
+        "tratto": "mandibola voluminosa",
+        "scostamento": 1.54,
+        "nota": "L'uomo delinquente: carattere ricorrente del delinquente nato",
+        "misura": "mandibola_su_zigomi",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 1,
+    "etichetta": "omicida",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "piantedosi",
+    "nome": "Matteo Piantedosi",
+    "carica": "Ministro dell'Interno",
+    "foto": "foto_manuali/piantedosi_fronte.jpg",
+    "fonte_foto": "",
+    "tratti": [
+      {
+        "tratto": "naso camuso",
+        "scostamento": 1.61,
+        "nota": "attribuito ai ladri",
+        "misura": "naso_larghezza_su_altezza",
+        "anomalia": true
+      },
+      {
+        "tratto": "naso torto",
+        "scostamento": 3.09,
+        "nota": "attribuito ai ladri",
+        "misura": "naso_deviazione_pct",
+        "anomalia": true
+      },
+      {
+        "tratto": "labbra sottili",
+        "scostamento": -1.53,
+        "nota": "attribuito agli omicidi",
+        "misura": "labbra_spessore_su_bocca",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 3,
+    "etichetta": "ladro",
+    "classificazione": "mezzo tipo"
+  },
+  {
+    "id": "nordio",
+    "nome": "Carlo Nordio",
+    "carica": "Ministro della Giustizia",
+    "foto": "foto/nordio.jpg",
+    "fonte_foto": "Camera dei deputati",
+    "tratti": [
+      {
+        "tratto": "mandibola voluminosa",
+        "scostamento": 1.83,
+        "nota": "L'uomo delinquente: carattere ricorrente del delinquente nato",
+        "misura": "mandibola_su_zigomi",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 1,
+    "etichetta": "omicida",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "crosetto",
+    "nome": "Guido Crosetto",
+    "carica": "Ministro della Difesa",
+    "foto": "foto/crosetto.jpg",
+    "fonte_foto": "Camera dei deputati (XVIII leg.)",
+    "tratti": [
+      {
+        "tratto": "naso lungo",
+        "scostamento": 2.28,
+        "nota": "attribuito ai truffatori (naso lungo e voluminoso)",
+        "misura": "naso_altezza_su_viso",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 1,
+    "etichetta": "truffatore",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "giorgetti",
+    "nome": "Giancarlo Giorgetti",
+    "carica": "Ministro dell'Economia e delle Finanze",
+    "foto": "foto/giorgetti.jpg",
+    "fonte_foto": "Camera dei deputati",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "urso",
+    "nome": "Adolfo Urso",
+    "carica": "Ministro delle Imprese e del Made in Italy",
+    "foto": "foto_manuali/urso_fronte.jpg",
+    "fonte_foto": "Senato della Repubblica",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "lollobrigida",
+    "nome": "Francesco Lollobrigida",
+    "carica": "Ministro dell'Agricoltura, Sovranità alimentare e Foreste",
+    "foto": "foto/lollobrigida.jpg",
+    "fonte_foto": "Camera dei deputati",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "pichetto",
+    "nome": "Gilberto Pichetto Fratin",
+    "carica": "Ministro dell'Ambiente e della Sicurezza energetica",
+    "foto": "foto/pichetto.jpg",
+    "fonte_foto": "Camera dei deputati",
+    "tratti": [
+      {
+        "tratto": "zigomi sporgenti",
+        "scostamento": 2.3,
+        "nota": "L'uomo delinquente: carattere ricorrente del delinquente nato",
+        "misura": "zigomi_su_altezza_viso",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 1,
+    "etichetta": "omicida",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "valditara",
+    "nome": "Giuseppe Valditara",
+    "carica": "Ministro dell'Istruzione e del Merito",
+    "foto": "foto_manuali/valditara_fronte.jpg",
+    "fonte_foto": "",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "bernini",
+    "nome": "Anna Maria Bernini",
+    "carica": "Ministra dell'Università e della Ricerca",
+    "foto": "foto_manuali/bernini_fronte.jpg",
+    "fonte_foto": "Senato della Repubblica",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "giuli",
+    "nome": "Alessandro Giuli",
+    "carica": "Ministro della Cultura",
+    "foto": "foto_manuali/giuli_fronte.jpg",
+    "fonte_foto": "",
+    "tratti": [
+      {
+        "tratto": "asimmetria facciale",
+        "scostamento": 2.74,
+        "nota": "carattere degenerativo generale",
+        "misura": "asimmetria_pct",
+        "anomalia": true
+      }
+    ],
+    "anomalie": 1,
+    "etichetta": "anarchico",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "mazzi",
+    "nome": "Gianmarco Mazzi",
+    "carica": "Ministro del Turismo",
+    "foto": "foto/mazzi.jpg",
+    "fonte_foto": "Camera dei deputati",
+    "tratti": [
+      {
+        "tratto": "fisionomia armonica",
+        "scostamento": -1.06,
+        "nota": "non è un'anomalia: nel delinquente per passione Lombroso nota bellezza e armonia dei lineamenti",
+        "misura": "asimmetria_pct",
+        "anomalia": false
+      }
+    ],
+    "anomalie": 0,
+    "etichetta": "delinquente per passione",
+    "classificazione": "nessun tipo"
+  },
+  {
+    "id": "schillaci",
+    "nome": "Orazio Schillaci",
+    "carica": "Ministro della Salute",
+    "foto": "foto_manuali/schillaci_fronte.jpg",
+    "fonte_foto": "",
+    "tratti": [],
+    "anomalie": 0,
+    "etichetta": "criminaloide",
+    "classificazione": "nessun tipo"
+  }
+]
