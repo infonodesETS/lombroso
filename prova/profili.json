@@ -3,19 +3,11 @@
     "id": "meloni",
     "nome": "Giorgia Meloni",
     "carica": "Presidente del Consiglio",
-    "foto": "foto/meloni.jpg",
+    "foto": "foto_manuali/meloni_fronte.jpg",
     "fonte_foto": "Camera dei deputati",
-    "tratti": [
-      {
-        "tratto": "fisionomia armonica",
-        "scostamento": -1.1,
-        "nota": "non è un'anomalia: nel delinquente per passione Lombroso nota bellezza e armonia dei lineamenti",
-        "misura": "asimmetria_pct",
-        "anomalia": false
-      }
-    ],
+    "tratti": [],
     "anomalie": 0,
-    "etichetta": "delinquente per passione",
+    "etichetta": "criminaloide",
     "classificazione": "nessun tipo"
   },
   {
@@ -49,7 +41,7 @@
     "tratti": [
       {
         "tratto": "asimmetria facciale",
-        "scostamento": 1.51,
+        "scostamento": 1.52,
         "nota": "carattere degenerativo generale",
         "misura": "asimmetria_pct",
         "anomalia": true
@@ -68,7 +60,7 @@
     "tratti": [
       {
         "tratto": "naso camuso",
-        "scostamento": 2.39,
+        "scostamento": 2.16,
         "nota": "attribuito ai ladri",
         "misura": "naso_larghezza_su_altezza",
         "anomalia": true
@@ -98,7 +90,7 @@
     "tratti": [
       {
         "tratto": "asimmetria facciale",
-        "scostamento": 2.17,
+        "scostamento": 2.19,
         "nota": "carattere degenerativo generale",
         "misura": "asimmetria_pct",
         "anomalia": true
@@ -128,7 +120,7 @@
     "tratti": [
       {
         "tratto": "labbra tumide",
-        "scostamento": 2.85,
+        "scostamento": 2.84,
         "nota": "attribuito agli stupratori",
         "misura": "labbra_spessore_su_bocca",
         "anomalia": true
@@ -176,15 +168,8 @@
     "fonte_foto": "",
     "tratti": [
       {
-        "tratto": "naso camuso",
-        "scostamento": 1.61,
-        "nota": "attribuito ai ladri",
-        "misura": "naso_larghezza_su_altezza",
-        "anomalia": true
-      },
-      {
         "tratto": "naso torto",
-        "scostamento": 3.09,
+        "scostamento": 3.04,
         "nota": "attribuito ai ladri",
         "misura": "naso_deviazione_pct",
         "anomalia": true
@@ -197,9 +182,9 @@
         "anomalia": true
       }
     ],
-    "anomalie": 3,
+    "anomalie": 2,
     "etichetta": "ladro",
-    "classificazione": "mezzo tipo"
+    "classificazione": "nessun tipo"
   },
   {
     "id": "nordio",
@@ -210,7 +195,7 @@
     "tratti": [
       {
         "tratto": "mandibola voluminosa",
-        "scostamento": 1.83,
+        "scostamento": 1.82,
         "nota": "L'uomo delinquente: carattere ricorrente del delinquente nato",
         "misura": "mandibola_su_zigomi",
         "anomalia": true
@@ -229,7 +214,7 @@
     "tratti": [
       {
         "tratto": "naso lungo",
-        "scostamento": 2.28,
+        "scostamento": 2.3,
         "nota": "attribuito ai truffatori (naso lungo e voluminoso)",
         "misura": "naso_altezza_su_viso",
         "anomalia": true
@@ -281,7 +266,7 @@
     "tratti": [
       {
         "tratto": "zigomi sporgenti",
-        "scostamento": 2.3,
+        "scostamento": 2.43,
         "nota": "L'uomo delinquente: carattere ricorrente del delinquente nato",
         "misura": "zigomi_su_altezza_viso",
         "anomalia": true
@@ -322,7 +307,7 @@
     "tratti": [
       {
         "tratto": "asimmetria facciale",
-        "scostamento": 2.74,
+        "scostamento": 2.77,
         "nota": "carattere degenerativo generale",
         "misura": "asimmetria_pct",
         "anomalia": true
@@ -341,7 +326,7 @@
     "tratti": [
       {
         "tratto": "fisionomia armonica",
-        "scostamento": -1.06,
+        "scostamento": -1.13,
         "nota": "non è un'anomalia: nel delinquente per passione Lombroso nota bellezza e armonia dei lineamenti",
         "misura": "asimmetria_pct",
         "anomalia": false

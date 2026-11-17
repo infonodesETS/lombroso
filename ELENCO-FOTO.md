@@ -30,7 +30,7 @@ Per queste persone la frontale c'è. «Fornita a mano» = foto messa da te in `f
 
 | Nome | Carica | Sigla | Frontale | Nota |
 |---|---|---|---|---|
-| Giorgia Meloni | Presidente del Consiglio | `meloni` | Camera dei deputati |  |
+| Giorgia Meloni | Presidente del Consiglio | `meloni` | fornita a mano |  |
 | Antonio Tajani | Vice Presidente - Ministro degli Esteri | `tajani` | Camera dei deputati |  |
 | Matteo Salvini | Vice Presidente - Ministro delle Infrastrutture e Trasporti | `salvini` | fornita a mano |  |
 | Luca Ciriani | Ministro per i Rapporti con il Parlamento | `ciriani` | fornita a mano |  |
